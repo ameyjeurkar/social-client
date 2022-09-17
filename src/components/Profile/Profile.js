@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react';
 import Card from './Card/Card';
 import ReactRoundedImage from "react-rounded-image";
 import { useNavigate, useParams } from 'react-router-dom';
-// import EditModal from './EditProfileModal/EditProfileModal';
 import ProfilePic from '../../assets/images/profile-user.png';
 import { followUser, unFollowUser } from '../../services/put_requests.service';
 import { getLoggedInUserDetails, getAllPostsOfUser } from '../../services/get_requests.service';
@@ -14,7 +13,6 @@ function Profile() {
   const [userData, setUserData] = useState(null);
   const [following, setFollowing] = useState(null);
   const [loggedInUser, setLoggedInUser] = useState(sessionStorage.getItem("userId"));
-  // const [openDialog, setOpenDialog] = useState(false);
   const { userId } = useParams();
 
   
@@ -22,14 +20,6 @@ function Profile() {
     getAllPosts();
     getUserDetails();
   }, []);
-
-  // useEffect(() => {
-  //   userData?.following?.includes(loggedInUser) ? setFollowing(true) : setFollowing(false);
-  // }, [])
-
-  // const setFollowingFunction = async () => {
-  //   await userData?.following?.includes(loggedInUser) ? setFollowing(true) : setFollowing(false);
-  // }
 
   const getUserDetails = async () => {
     const user = await getLoggedInUserDetails(userId);

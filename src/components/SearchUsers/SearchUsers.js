@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import Profile from '../Profile/Profile';
 import { useNavigate } from 'react-router-dom';
 import ReactRoundedImage from "react-rounded-image";
 import { searchUsers } from '../../services/requests';

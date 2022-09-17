@@ -12,7 +12,6 @@ const Register = () => {
         password: "",
         confirmpassword: ""
     });
-    const [user, setUser] = useState(null);
 
     const handleInputChange = (event) => {
         setInputs({...inputs, [event.target.name]: event.target.value});
@@ -28,7 +27,6 @@ const Register = () => {
         if((inputs.password === inputs.confirmpassword)) {
             const request = inputs;
             let response = await axios.post(`${process.env.REACT_APP_HEROKU_URL}/auth/register`, request);
-            setUser(response);
             response.data.statusCode==200 && navigate('/login');
         }
     }

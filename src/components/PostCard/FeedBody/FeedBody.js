@@ -3,7 +3,7 @@ import './FeedBody.css';
 
 function FeedBody({postImg}) {
   return (
-    <img src={postImg} className="auto-adjust-width"/>
+    <img src={postImg} className="auto-adjust-width" alt="posted-image"/>
   )
 }
 export default FeedBody;

@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { addPost } from '../../services/requests';
-import Feeds from '../PostCard/Feeds/Feeds';
 import './AddFeed.css';
 
 function AddFeed() {
