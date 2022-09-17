@@ -27,7 +27,7 @@ const Register = () => {
         if((inputs.password === inputs.confirmpassword)) {
             const request = inputs;
             let response = await axios.post(`${process.env.REACT_APP_HEROKU_URL}/auth/register`, request);
-            response.data.statusCode==200 && navigate('/login');
+            response.data.statusCode===200 && navigate('/login');
         }
     }
 
