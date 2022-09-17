@@ -1,0 +1,9 @@
+.image-style {
+    border-radius: 10px;
+    margin-bottom: 8px;
+}
+
+.image-style:hover {
+    color: aqua;
+    cursor: pointer;
+}

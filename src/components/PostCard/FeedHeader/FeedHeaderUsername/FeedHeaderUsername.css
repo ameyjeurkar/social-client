@@ -1,0 +1,8 @@
+.custom-font {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.username-stretched {
+    display: flex;
+    flex-grow: 1;
+}

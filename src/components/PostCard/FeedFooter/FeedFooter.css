@@ -1,0 +1,16 @@
+.custom-Height {
+    width: 32px;
+}
+
+.fs-14 {
+    font-size: 14px;
+}
+
+.fs-12 {
+    font-size: 12px;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+    background-color: rgb(236, 236, 236);
+}

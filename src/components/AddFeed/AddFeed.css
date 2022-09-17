@@ -1,0 +1,43 @@
+.img-container {
+    position: relative;
+}
+
+.img-container img {
+    display: block;
+}
+
+.img-container span {
+    position: absolute;
+    top: 0;
+    right: 0;
+    color: aliceblue;
+}
+
+.feed-container-add-image {
+    width: 100%;
+    padding: 0.4%;
+    margin-bottom: 1.4%;
+    border-radius: 5px;
+}
+/* 
+@media only screen and (max-width: 768px) {
+    .feed-container-add-image {
+        width: 100%;
+    }
+}
+
+@media only screen and (max-width: 425px) {
+    .feed-container-add-image {
+        width: 100%;
+        margin-left: 0.2%;
+        margin-right: 0.2%;
+    }
+} */
+
+input[type="file"] {
+    display: none;
+}
+
+.add-button {
+    background-color: rgb(74, 74, 74);
+}

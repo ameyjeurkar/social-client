@@ -1,0 +1,15 @@
+.thumbnail-image {
+    width: 10% !important;
+    height: 10% !important;
+    padding: 2px;
+    /* border-radius: 50%; */
+    background-position: center;
+    background-size:100% auto;
+    background-repeat: no-repeat;
+}
+
+@media only screen and (max-width: 1024px) {
+    .thumbnail-image {
+        padding: 1px;
+    }
+}
