@@ -21,7 +21,7 @@ function FeedHeader({timelineData}) {
     <div className="d-flex flex-row align-items-center">
       <FeedHeaderImage profilePicture={response?.profilePicture} username={response?.username}/>
       <FeedHeaderUsername username={timelineData?.username} location={timelineData?.location}/>
-      <FeedHeaderOptions />
+      <FeedHeaderOptions imgId={timelineData?._id} userId={timelineData?.userId}/>
     </div>
   )
 }

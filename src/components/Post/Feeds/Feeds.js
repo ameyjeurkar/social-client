@@ -20,7 +20,7 @@ function Feeds() {
   }
   
   if(response?.length === 0) {
-    return <div className="d-flex justify-content-center align-items-center">No Feeds Available</div>
+    return <div className="d-flex justify-content-center align-items-center fw-bold">No Feeds Available</div>
   }
 
   return (

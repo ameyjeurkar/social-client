@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Register from './components/Auth/Register/Register';
 import Login from './components/Auth/Login/Login';
-import Feeds from './components/PostCard/Feeds/Feeds';
+import Feeds from './components/Post/Feeds/Feeds';
 import Profile from './components/Profile/Profile';
 import SearchUsers from './components/SearchUsers/SearchUsers';
 import './App.css';
