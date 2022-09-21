@@ -6,3 +6,37 @@
 .color-white {
     color: white;
 }
+
+.vertically-center {
+    display: flex;
+    align-items: center;
+}
+
+.color-grey {
+    color: whitesmoke;
+}
+
+.custom-input {
+    background: none;
+    border: 1px solid rgb(240, 240, 240);
+    border-radius: 2px;
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(240, 240, 240);
+}
+
+.custom-input:focus {
+    outline: none;
+}
+
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+    padding-left: 1%;
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(240, 240, 240);
+    opacity: 1; /* Firefox */
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+    color: rgb(240, 240, 240);
+}

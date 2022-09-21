@@ -12,6 +12,8 @@ function Profile() {
   const [posts, setPosts] = useState([]);
   const [userData, setUserData] = useState(null);
   const [following, setFollowing] = useState(null);
+  const [followersCount, setFollowersCount] = useState(null);
+  const [followingCount, setFollowingCount] = useState(null);
   const [loggedInUser, setLoggedInUser] = useState(sessionStorage.getItem("userId"));
   const { userId } = useParams();
 
@@ -24,6 +26,9 @@ function Profile() {
   const getUserDetails = async () => {
     const user = await getLoggedInUserDetails(userId);
     setUserData(user.data);
+    setFollowing(user.data.followers.includes(loggedInUser));
+    setFollowingCount(user.data.following.length);
+    setFollowersCount(user.data.followers.length);
   }
 
   const getAllPosts = async () => {
@@ -33,7 +38,13 @@ function Profile() {
 
   const followUnfollow = async (userIDToFollowUnfollow) => {
     await !following ? followUser(loggedInUser, userIDToFollowUnfollow) : unFollowUser(loggedInUser, userIDToFollowUnfollow);
+    following ? setFollowersCount(prev => (prev-1)) : setFollowersCount(prev => (prev+1));
     setFollowing(!following);
+  }
+
+  const logout = () => {
+    sessionStorage.clear();
+    navigate('/login');
   }
 
   const close = () => {
@@ -42,7 +53,7 @@ function Profile() {
 
   return (
     <div className="container">
-      <span className="close-icon fw-bold" onClick={() => close()}>&times;</span>
+      <span className="close-icon fw-bold cursor-pointer" onClick={() => close()}>&times;</span>
       <div className="row">
           {/* Basic Information Section */}
           <div className="col-lg-12 col-md-12 col-sm-12">
@@ -111,6 +122,16 @@ function Profile() {
                       </div>
                     )
                   }
+                  {
+                    userData?._id===loggedInUser && (
+                      <div className="my-2 d-flex justify-content-space-center">
+                        <button className="btn btn-sm btn-danger fw-bold" onClick={logout}>
+                          Logout&nbsp;&nbsp;&nbsp;
+                          <span className='fa fa-sign-out'></span>
+                        </button>
+                      </div>
+                    )
+                  }
                 </div>
               </div>
             </div>
@@ -123,11 +144,11 @@ function Profile() {
               </div>
               <div className="d-flex flex-column align-items-center">
                 <span className="post-title">Followers</span>
-                <span className="post-value">{userData?.followers?.length || 0}</span>
+                <span className="post-value">{followersCount || 0}</span>
               </div>
               <div className="d-flex flex-column align-items-center">
                 <span className="post-title">Following</span>
-                <span className="post-value">{userData?.following?.length || 0}</span>
+                <span className="post-value">{followingCount || 0}</span>
               </div>
             </div>
 
@@ -155,7 +176,7 @@ function Profile() {
             </div>
           </div>
       </div>
-      {/* <EditModal openDialog={openDialog}/> */}
+      {/* <EditModal openDialog={true}/> */}
     </div>
   )
 }

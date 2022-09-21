@@ -15,3 +15,7 @@ export const addPost = async (formDataRequest) => {
 export const searchUsers = async (request) => {
     return axios.post(`${process.env.REACT_APP_HEROKU_URL}/user/search/people`, request);
 }
+
+export const addComments = async (imgId, request) => {
+    return await axios.post(`${process.env.REACT_APP_HEROKU_URL}/post/${imgId}/comment`, request);
+}
