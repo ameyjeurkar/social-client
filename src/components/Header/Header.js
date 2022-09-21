@@ -37,7 +37,7 @@ function Header() {
                 {
                     verticalMenuBar.map(menu => {
                         return (
-                            <div key={menu.id} className="nav-item" onClick={() => navigateTo(menu.path, menu.name)}>
+                            <div key={menu.id} className="nav-item cursor-pointer" onClick={() => navigateTo(menu.path, menu.name)}>
                                 <i className={`${menu.icon} py-3 px-2 fs-3`}></i>
                             </div>
                         )

@@ -45,7 +45,7 @@ export default function FeedFooter({username, totalLikes, comments, caption, img
         caption ? <span className="px-2 fs-12">{caption}</span> : <></>
       }
       {
-        opened ? <CommentSection comments={comments}/> : <></>
+        opened ? <CommentSection comments={comments} imgID={imgID}/> : <></>
       }
     </div>
   )
