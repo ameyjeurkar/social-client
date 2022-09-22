@@ -140,7 +140,7 @@ function Profile() {
             <div className="col-lg-12 col-md-12 col-sm-12 followers-following-section">
               <div className="d-flex flex-column align-items-center">
                 <span className="post-title">Posts</span>
-                <span className="post-value">{posts?.posts?.length}</span>
+                <span className="post-value">{posts?.posts?.length || 0}</span>
               </div>
               <div className="d-flex flex-column align-items-center">
                 <span className="post-title">Followers</span>
