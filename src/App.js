@@ -5,6 +5,7 @@ import Feeds from './components/Post/Feeds/Feeds';
 import Profile from './components/Profile/Profile';
 import SearchUsers from './components/SearchUsers/SearchUsers';
 import './App.css';
+import Header from './components/Header/Header';
 
 function App() {
     return (
@@ -13,7 +14,7 @@ function App() {
             <Route path="/" element={<Register/>} />
             {/* <Route path="/register" element={<Register/>} /> */}
             <Route path="/login" element={<Login/>} />
-            <Route path="/feeds" element={<Feeds/>} />
+            <Route path="/feeds" element={<Header/>} />
             <Route path="/profile/:userId" element={<Profile/>} />
             <Route path="/search" element={<SearchUsers/>} />
         </Routes>

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import Feeds from '../Post/Feeds/Feeds';
 import './Header.css';
 
 const verticalMenuBar = [
@@ -43,6 +44,9 @@ function Header() {
                         )
                     })
                 }
+            </div>
+            <div>
+                <Feeds />
             </div>
         </div>
     )

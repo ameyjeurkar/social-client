@@ -20,14 +20,14 @@ function Feeds() {
   }
   
   if(response?.length === 0) {
-    return <div className="d-flex justify-content-center align-items-center fw-bold">No Feeds Available</div>
+    return <div className="d-flex justify-content-center align-items-center fw-bold my-2 fs-3">Please wait. While feeds load :)</div>
   }
 
   return (
     <div className="container">
-      <div>
+      {/* <div>
         <Header />
-      </div>
+      </div> */}
       <div className="wrapper-container">
         <div className="feed-container">
           <AddFeed />
