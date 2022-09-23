@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import ReactRoundedImage from "react-rounded-image";
 import { searchUsers } from '../../services/requests';
+import { debounce } from '../../common/Debounce';
+import ReactRoundedImage from "react-rounded-image";
 import ProfilePic from '../../assets/images/profile-user.png';
 import './SearchUsers.css';
 
@@ -10,8 +11,10 @@ function SearchUsers() {
     const [foundUsers, setFoundUsers] = useState([]);
 
     const search = async (value) => {
-        const allMatchedUsers = await searchUsers(value);
-        console.log(allMatchedUsers);
+        const request = {
+            searchedKeyword: value
+        }
+        const allMatchedUsers = await searchUsers(request);
         setFoundUsers(allMatchedUsers.data.users);
     }
 
@@ -19,34 +22,48 @@ function SearchUsers() {
         navigate(`/profile/${userId}`);
     }
 
+    const handleChange = (value) => {
+        debounced(value);
+    }
+
+    const debounced = debounce(search, 400);
+
     return (
-        <div className="container">
-            <input type="text" className="form-control m-2" placeholder="Search using username, email" onChange={(event) => search(event.target.value)}/>
-            
-            {
-                foundUsers.map(user => {
-                    return (
-                        <div className="m-2 border" key={user._id}>
-                            <div className="row" onClick={() => goToProfile(user._id)}>
-                                <div className="col-2">
-                                    <ReactRoundedImage
-                                        image={user?.profilePicture ? user?.profilePicture : ProfilePic}
-                                        imageWidth="50"
-                                        imageHeight="50"
-                                        roundedSize="5"
-                                        roundedColor="#bdbdbd"
-                                        borderRadius="100"
-                                    />
-                                </div>
-                                <div className="col-10 d-flex flex-column">
-                                    <span className="fw-bold">{user?.username}</span>
-                                    <span>{user?.city}</span>
+        <div className="container mt-3">
+            <div className="d-flex justify-content-center">
+                <input
+                    type="text" 
+                    className="form-control m-2" 
+                    placeholder="Search using username, email"
+                    onChange={(event) => handleChange(event.target.value)}
+                />
+            </div>
+            <div className="d-flex flex-column">
+                {
+                    foundUsers.map(user => {
+                        return (
+                            <div className="mx-2 my-1 border" key={user._id}>
+                                <div className="row" onClick={() => goToProfile(user._id)}>
+                                    <div className="col-2">
+                                        <ReactRoundedImage
+                                            image={user?.profilePicture ? user?.profilePicture : ProfilePic}
+                                            imageWidth="40"
+                                            imageHeight="40"
+                                            roundedSize="5"
+                                            roundedColor="#bdbdbd"
+                                            borderRadius="100"
+                                        />
+                                    </div>
+                                    <div className="col-10 d-flex flex-column mx-0">
+                                        <span className="fw-bold fs-14">{user?.username}</span>
+                                        <span className="fs-12">{user?.city}</span>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    )
-                })
-            }
+                        )
+                    })
+                }
+            </div>
         </div>
     )
 }
