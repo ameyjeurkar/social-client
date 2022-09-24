@@ -22,6 +22,10 @@ function SearchUsers() {
         navigate(`/profile/${userId}`);
     }
 
+    const navigateToFeeds = () => {
+        navigate('/feeds');
+    }
+
     const handleChange = (value) => {
         debounced(value);
     }
@@ -37,6 +41,9 @@ function SearchUsers() {
                     placeholder="Search using username, email"
                     onChange={(event) => handleChange(event.target.value)}
                 />
+                <div className="d-flex align-items-center">
+                    <span onClick={navigateToFeeds}><i className="d-flex align-items-center fa fa-times-circle cursor-pointer fs-24"></i></span>
+                </div>
             </div>
             <div className="d-flex flex-column">
                 {

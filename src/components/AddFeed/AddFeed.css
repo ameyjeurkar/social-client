@@ -29,5 +29,6 @@ input[type="file"] {
 }
 
 .add-button {
-    background-color: rgb(74, 74, 74);
+    color: rgb(236, 236, 236);
+    background-color: rgb(60, 60, 60);
 }
