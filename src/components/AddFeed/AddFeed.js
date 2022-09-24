@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { addPost } from '../../services/requests';
 import './AddFeed.css';
 
-function AddFeed() {
+function AddFeed({ responseUpdated, setResponseUpdated }) {
     const [selectedImage, setSelectedImage] = useState(null);
     const [imageParams, setImageParams] = useState({
         userId: sessionStorage.getItem('userId'),
@@ -37,7 +37,7 @@ function AddFeed() {
             formData.append("image", selectedImage);
             const response = await addPost(formData);
             response.data.statusCode===200 && setSelectedImage(null);
-            // response.data.statusCode === 200 && <Feeds />
+            response.data.statusCode===200 && setResponseUpdated(!responseUpdated);
         }
     }
 
@@ -55,7 +55,7 @@ function AddFeed() {
                 selectedImage && (
                     <div className="img-container">
                         <img src={URL.createObjectURL(selectedImage)} alt="img_preview" className="align-items-center w-100"/>
-                        <span onClick={removeSelectedImage}><i className="fa fa-times-circle cursor-pointer m-1"></i></span>
+                        <span onClick={removeSelectedImage}><i className="fa fa-times-circle cursor-pointer m-1 red-cross"></i></span>
                     </div>
                 )
             }

@@ -9,10 +9,11 @@ import Header from '../../Header/Header';
 
 function Feeds() {
   const [response, setResponse] = useState([]);
+  const [responseUpdated, setResponseUpdated] = useState(false);
 
   useEffect(() => {
     getData();
-  }, []);
+  }, [responseUpdated]);
   
   const getData = async () => {
     let response = await getTimelineFeeds();
@@ -30,7 +31,7 @@ function Feeds() {
       </div> */}
       <div className="wrapper-container">
         <div className="feed-container">
-          <AddFeed />
+          <AddFeed responseUpdated={responseUpdated} setResponseUpdated={setResponseUpdated}/>
         </div>
         {
           response.map(feed => {

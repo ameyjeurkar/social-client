@@ -69,7 +69,7 @@
 }
 
 .color-grey{
-    color: grey;
+    color: grey !important;
 }
 
 .follow-button {
