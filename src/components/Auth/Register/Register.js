@@ -86,7 +86,7 @@ const Register = () => {
                             type="button"
                             value="button"
                             onClick={navigateToLoginPage}>
-                                Login
+                                Already a User.&nbsp;&nbsp;Login instead?
                         </ButtonLogin>
                     </Form>
                 </Column>
