@@ -73,7 +73,7 @@ function AddFeed({ responseUpdated, setResponseUpdated }) {
                                 <span className="input-group-text" id="basic-addon1"><i className="fa fa-map-marker"></i></span>
                                 <input type="text" className="form-control" placeholder="Location" name="location" value={imageParams.location} onChange={handleInputChange} aria-label="Location" />
                             </div>
-                            <button type="submit" value="submit" className="btn btn-secondary w-100 d-flex justify-content-center">
+                            <button type="submit" value="submit" className="btn btn-secondary w-100 d-flex justify-content-center" disabled={loader}>
                             {
                                 loader ? <Loader width={5} height={5} color={"grey"} /> : "Share"
                             }
