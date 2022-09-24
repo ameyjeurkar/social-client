@@ -13,7 +13,7 @@
 }
 
 .color-grey {
-    color: whitesmoke;
+    color: grey !important;
 }
 
 .custom-input {

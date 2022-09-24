@@ -19,20 +19,10 @@
     margin-bottom: 1.4%;
     border-radius: 5px;
 }
-/* 
-@media only screen and (max-width: 768px) {
-    .feed-container-add-image {
-        width: 100%;
-    }
-}
 
-@media only screen and (max-width: 425px) {
-    .feed-container-add-image {
-        width: 100%;
-        margin-left: 0.2%;
-        margin-right: 0.2%;
-    }
-} */
+.red-cross {
+    color: rgb(255, 95, 95);
+}
 
 input[type="file"] {
     display: none;

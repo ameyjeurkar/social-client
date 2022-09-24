@@ -21,7 +21,6 @@ const Login = () => {
         const request = inputs;
         let response = await axios.post(`${process.env.REACT_APP_HEROKU_URL}/auth/login`, request);
         setResponse(response);
-        console.log("login creds: ", response);
         if(response.data.statusCode===200) {
             sessionStorage.setItem("emailORusername", request.emailORusername);
             sessionStorage.setItem("password", request.password);
@@ -30,8 +29,11 @@ const Login = () => {
             // localStorage.setItem("password", request.password);
             localStorage.setItem("userId", response.data.userData._id);
             navigate('/feeds');
-        } 
-        // response.data.statusCode===200 && navigate('/feeds');
+        }
+    }
+
+    const navigateToRegister = () => {
+        navigate('/');
     }
 
     return (
@@ -67,6 +69,16 @@ const Login = () => {
                             type="submit"
                             value="submit">
                                 Login
+                        </Button>
+                        <span className="my-0 color-white">
+                            <hr></hr>
+                        </span>
+                        <Button
+                            type="button"
+                            value="button"
+                            onClick={navigateToRegister}    
+                        >
+                                Register Instead?
                         </Button>
                     </Form>
                 </Column>

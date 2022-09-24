@@ -28,7 +28,6 @@ export default function FeedFooter({username, totalLikes, comments, caption, img
 
   // Opening/Closing comment section
   const openCommentSection = () => {
-    console.log("opened")
     setOpened(!opened);
   }
 

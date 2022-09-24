@@ -14,12 +14,11 @@ function FeedHeader({timelineData}) {
   const getUsername = async () => {
     const response = await axios.get(`${process.env.REACT_APP_HEROKU_URL}/user/get_user/${timelineData.userId}`);
     setResponse(response.data);
-    console.log("FeedHeader: ", response.data);
   }
 
   return (
     <div className="d-flex flex-row align-items-center">
-      <FeedHeaderImage profilePicture={response?.profilePicture} username={response?.username}/>
+      <FeedHeaderImage profilePicture={response?.profilePicture} username={timelineData?.username}/>
       <FeedHeaderUsername username={timelineData?.username} location={timelineData?.location}/>
       <FeedHeaderOptions imgId={timelineData?._id} userId={timelineData?.userId}/>
     </div>
