@@ -38,6 +38,7 @@ function AddFeed({ responseUpdated, setResponseUpdated }) {
             const response = await addPost(formData);
             response.data.statusCode===200 && setSelectedImage(null);
             response.data.statusCode===200 && setResponseUpdated(!responseUpdated);
+            response.data.statusCode===200 && setImageParams({});
         }
     }
 
@@ -45,9 +46,9 @@ function AddFeed({ responseUpdated, setResponseUpdated }) {
         <div className="d-flex flex-column">
             {
                 !selectedImage && (
-                    <label className="custom-file-upload btn btn-secondary">
+                    <label className="custom-file-upload btn fw-bold add-button">
                         <input type="file" accept="image/*,video/*" onChange={imageChange} className="add-button"/>
-                        Upload
+                        Upload a Post
                     </label>
                 )
             }

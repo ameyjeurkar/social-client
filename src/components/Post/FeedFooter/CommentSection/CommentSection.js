@@ -18,7 +18,7 @@ function CommentSection({ comments, imgID }) {
         if(request.comment.length>0 && request.username.length>0) {
             const response = await addComments(imgID, request);
             response.data.statusCode===200 && allCommments.push(request);
-            response.data.statusCode===200 && setComment(null);
+            response.data.statusCode===200 && setComment("");
         }
     }
 
