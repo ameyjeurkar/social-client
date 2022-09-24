@@ -19,6 +19,14 @@
     box-shadow: 0px 2px rgb(209, 209, 209);
 }
 
+.text-align-center {
+    text-align: center;
+}
+
+.hightlight {
+    color: tomato;
+}
+
 @media only screen and (max-width: 1024px) {
     .feed-container {
         width:  96%;

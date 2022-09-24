@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import Loader from '../Loader/Loader';
 import { addPost } from '../../services/requests';
 import './AddFeed.css';
 
 function AddFeed({ responseUpdated, setResponseUpdated }) {
     const [selectedImage, setSelectedImage] = useState(null);
+    const [loader, setLoader] = useState(false);
     const [imageParams, setImageParams] = useState({
         userId: sessionStorage.getItem('userId'),
         username: sessionStorage.getItem('emailORusername'),
@@ -28,6 +30,7 @@ function AddFeed({ responseUpdated, setResponseUpdated }) {
 
     const addFeed = async (event) => {
         event.preventDefault();
+        setLoader(true);
         if(selectedImage !== null) {
             let formData = new FormData();
             formData.append("userId", sessionStorage.getItem('userId'));
@@ -39,6 +42,7 @@ function AddFeed({ responseUpdated, setResponseUpdated }) {
             response.data.statusCode===200 && setSelectedImage(null);
             response.data.statusCode===200 && setResponseUpdated(!responseUpdated);
             response.data.statusCode===200 && setImageParams({});
+            response.data.statusCode===200 && setLoader(false);
         }
     }
 
@@ -69,7 +73,11 @@ function AddFeed({ responseUpdated, setResponseUpdated }) {
                                 <span className="input-group-text" id="basic-addon1"><i className="fa fa-map-marker"></i></span>
                                 <input type="text" className="form-control" placeholder="Location" name="location" value={imageParams.location} onChange={handleInputChange} aria-label="Location" />
                             </div>
-                            <button type="submit" value="submit" className="btn btn-secondary w-100">Post</button>
+                            <button type="submit" value="submit" className="btn btn-secondary w-100 d-flex justify-content-center" disabled={loader}>
+                            {
+                                loader ? <Loader width={5} height={5} color={"grey"} /> : "Share"
+                            }
+                            </button>
                         </form>
                     </div>
                 )
